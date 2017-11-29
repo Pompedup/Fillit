@@ -6,7 +6,7 @@
 /*   By: abezanni <abezanni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 15:58:04 by glebouch          #+#    #+#             */
-/*   Updated: 2017/11/28 16:19:38 by abezanni         ###   ########.fr       */
+/*   Updated: 2017/11/29 12:00:03 by abezanni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,7 @@ int				ft_ispoint(t_tetri *pos, char *tab, int size, int *nb_essai);
 int				ft_resolve(int nb_pieces, t_list *ma_list);
 void			ft_erase_list(t_list *ma_list);
 char			*ft_init_tab(char *tab, int size);
+void			ft_move(t_tetri **pos, int tx, int ty);
+void			ft_add_pos(t_tetri *pos, char *buffer);
 
 #endif

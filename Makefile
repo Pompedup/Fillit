@@ -5,14 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: abezanni <abezanni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2017/11/22 14:41:16 by abezanni          #+#    #+#              #
-#    Updated: 2017/11/28 15:17:24 by abezanni         ###   ########.fr        #
+#    Created: 2017/11/22 14:41:16 by glebouch          #+#    #+#              #
+#    Updated: 2017/11/29 12:08:02 by abezanni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fillit
 
-SRC = fillit.c ft_create_maill.c resolve.c
+SRC = fillit.c ft_create_maill.c resolve.c gestion_pos.c
 
 FLAG = -Wall -Wextra -Werror
 
@@ -20,12 +20,10 @@ OBJ = $(SRC:.c=.o)
 
 LIB = -L ./libft/ -lft
 
-all : mlib $(NAME)
-
-mlib :
-	make -C ./libft/
+all : $(NAME)
 
 $(NAME) : $(OBJ)
+	make -C ./libft/
 	gcc $(FLAG) -o $@ $^ $(LIB)
 
 %.o : %.c
@@ -36,7 +34,7 @@ clean :
 	/bin/rm -f $(OBJ)
 
 fclean : clean
-	make fclean -C ./libft/
+	/bin/rm -f libft/libft.a
 	/bin/rm -f $(NAME)
 
 re : fclean	all
