@@ -6,19 +6,24 @@
 #    By: abezanni <abezanni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/22 14:41:16 by glebouch          #+#    #+#              #
-#    Updated: 2017/11/29 12:08:02 by abezanni         ###   ########.fr        #
+#    Updated: 2018/12/18 19:56:49 by abezanni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
+NAME =	fillit
 
-SRC = fillit.c ft_create_maill.c resolve.c gestion_pos.c
+SRC =	src/fillit.c\
+		src/ft_create_maill.c\
+		src/resolve.c\
+		src/gestion_pos.c\
 
-FLAG = -Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra -Werror -I ./inc
 
-OBJ = $(SRC:.c=.o)
+OBJ =	$(SRC:.c=.o)
 
-LIB = -L ./libft/ -lft
+LIB =	-L ./libft/ -lft
+
+CC =	gcc
 
 all : $(NAME)
 
@@ -26,8 +31,8 @@ $(NAME) : $(OBJ)
 	make -C ./libft/
 	gcc $(FLAG) -o $@ $^ $(LIB)
 
-%.o : %.c
-	gcc $(FLAG) -c $< -I.
+# %.o : %.c
+	# gcc $(FLAG) -c $< -I.
 
 clean :
 	make clean -C ./libft/
